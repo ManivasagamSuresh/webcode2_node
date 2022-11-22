@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express()
 const mongodb =require('mongodb');
-const URL = "mongodb://0.0.0.0:27017"
+const dotenv = require("dotenv").config()
+const URL = process.env.DB
 const mongoclient = new mongodb.MongoClient(URL)
 const cors = require('cors');
 
 app.use(express.json());
 
 app.use(cors({
-    origin:"http://localhost:3000"
+    origin:"https://gleeful-cat-46c99a.netlify.app",
+    // origin:"http://localhost:3000"
 }))
 
 
